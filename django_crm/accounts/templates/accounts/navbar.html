@@ -1,5 +1,14 @@
 {% comment %} {% load static %} {% endcomment %}
 
+<style> 
+
+  #hello-msg {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 20px;
+
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="{% url 'home' %}">LOGO</a>
   {% comment %} <img src="{% static 'images/logo.png' %}"> {% endcomment %}
@@ -16,8 +25,15 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      {% if request.user.is_staff %}
       <a class="nav-item nav-link active" href="{% url 'home' %}">Dashboard</a> </a>
       <a class="nav-item nav-link" href="{% url 'products' %}">Products</a>
+      {%endif%}
     </div>
   </div>
+
+  <span id="hello-msg">Hello, {{request.user}}</span>
+  <span><a href="{% url 'logout' %}" class="btn btn-sm btn-danger">Logout</a></span>
+
+
 </nav>
