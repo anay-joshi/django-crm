@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 
 from .models import *
-from .forms import OrderForm, CreateUserForm
+from .forms import OrderForm, CreateUserForm, CustomerForm
 from .filters import OrderFilter
 
 from .decorators import unauthenticated_user, allowed_users, admin_only
@@ -32,6 +32,8 @@ def registerPage(request):
             user.groups.add(group)
             Customer.objects.create(
                 user = user,
+                name = username,
+                email = form.cleaned_data.get('email'),
             )
 
 
@@ -92,6 +94,23 @@ def userPage(request):
 
     context ={'orders':orders,'total_orders':total_orders, 'delivered':delivered, 'pending':pending}
     return render(request, 'accounts/user.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
+def accountSettings(request):
+	customer = request.user.customer
+	form = CustomerForm(instance=customer)
+
+	if request.method == 'POST':
+		form = CustomerForm(request.POST, request.FILES,instance=customer)
+		if form.is_valid():
+			form.save()
+
+
+	context = {'form':form}
+	return render(request, 'accounts/account_settings.html', context)
+
 
 
 
