@@ -27,14 +27,6 @@ def registerPage(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
-            
-            group = Group.objects.get(name='customer')
-            user.groups.add(group)
-            Customer.objects.create(
-                user = user,
-                name = username,
-                email = form.cleaned_data.get('email'),
-            )
 
 
             messages.success(request, 'Successfully created account for '+username)
@@ -133,6 +125,7 @@ def customer(request, pk_test):
 
     context = {'customer': customer, 'orders': orders, 'order_count':order_count, 'myFilter': myFilter}
     return render(request, 'accounts/customer.html', context)
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
