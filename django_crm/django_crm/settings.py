@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'django_crm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'CUREM_Database',
+        'USER': 'curem',
+        'PASSWORD': 'Curem#12345',
+        'HOST': 'database-1.ccdtoxvl8bjg.ap-south-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -143,5 +147,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'aladin01012000@gmail.com'
-EMAIL_HOST_PASSWORD = 'Aladin@112000'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''

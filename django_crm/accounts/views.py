@@ -104,8 +104,6 @@ def accountSettings(request):
 	return render(request, 'accounts/account_settings.html', context)
 
 
-
-
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def products(request):
