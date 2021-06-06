@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,13 +23,13 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        background: #edbf69 !important;
+        background: #5a20cb !important;
       }
       .user_card {
         width: 350px;
         margin-top: auto;
         margin-bottom: auto;
-        background: #f7cd2e;
+        background: #646ce3;
         position: relative;
         display: flex;
         justify-content: center;
@@ -84,65 +85,84 @@
     </style>
   </head>
   <body>
+    <br /><br /><br /><br /><br /><br /><br /><br />
     <div class="container h-100">
-      <div class="d-flex justify-content-center h-100">
-        <div class="user_card">
-          <div class="d-flex justify-content-center">
-            <h3 id="form-title">LOGIN</h3>
-          </div>
-          <div class="d-flex justify-content-center form_container">
-            <form method="POST" action="">
-              {% csrf_token %}
-              <div class="input-group mb-3">
-                <div class="input-group-append">
-                  <span class="input-group-text"
-                    ><i class="fas fa-user"></i
-                  ></span>
-                </div>
-
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username..."
-                  class="form-control"
-                />
-              </div>
-
-              <div class="input-group mb-2">
-                <div class="input-group-append">
-                  <span class="input-group-text"
-                    ><i class="fas fa-key"></i
-                  ></span>
-                </div>
-
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password..."
-                  class="form-control"
-                />
-              </div>
-
-              <div class="d-flex justify-content-center mt-3 login_container">
-                <input class="btn login_btn" type="submit" value="Login" />
-              </div>
-            </form>
-          </div>
-
-          {% for message in messages %}
-          <p id="messages">{{message}}</p>
-          {% endfor %}
-
-          <div class="mt-4">
-            <div class="d-flex justify-content-center links">
-              Don't have an account?
-              <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+      <div class="row">
+        <div class="col ld-flex justify-content-center h-100" data-tilt>
+          <img
+            src="{% static 'images/login.png' %}"
+            alt="IMG"
+            width="75%"
+            height=""
+          />
+        </div>
+        <div class="col d-flex justify-content-center h-100">
+          <div class="user_card">
+            <div class="d-flex justify-content-center">
+              <h3 id="form-title">LOGIN</h3>
             </div>
-            <div class="d-flex justify-content-center links">
-              Forgot Password?
-              <a href="{% url 'reset_password' %}" class="ml-2"
-                >Reset Password</a
-              >
+            <div class="d-flex justify-content-center form_container">
+              <form method="POST" action="">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text"
+                      ><i class="fas fa-user"></i
+                    ></span>
+                  </div>
+
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="Username..."
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="input-group mb-2">
+                  <div class="input-group-append">
+                    <span class="input-group-text"
+                      ><i class="fas fa-key"></i
+                    ></span>
+                  </div>
+
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password..."
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="d-flex justify-content-center mt-3 login_container">
+                  <input class="btn login_btn" type="submit" value="Login" />
+                </div>
+              </form>
+            </div>
+
+            {% for message in messages %}
+            <p id="messages">{{message}}</p>
+            {% endfor %}
+
+            <div class="mt-4">
+              <div class="d-flex justify-content-center links">
+                Don't have an account?
+                <a
+                  href="{% url 'register' %}"
+                  class="ml-2"
+                  style="color: #86e5f0"
+                  >Sign Up</a
+                >
+              </div>
+              <div class="d-flex justify-content-center links">
+                Forgot Password?
+                <a
+                  href="{% url 'reset_password' %}"
+                  class="ml-2"
+                  style="color: #86e5f0"
+                  >Reset Password</a
+                >
+              </div>
             </div>
           </div>
         </div>

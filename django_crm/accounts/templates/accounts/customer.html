@@ -7,9 +7,13 @@
     <div class="card card-body">
       <h5>Customer: {{customer.name}}</h5>
       <hr />
-      <a class="btn btn-outline-info btn-sm btn-block" href=""
+      {% comment %}
+      <a
+        class="btn btn-outline-info btn-sm btn-block"
+        href="{% url 'account' %}"
         >Update Customer</a
       >
+      {% endcomment %}
       <a
         class="btn btn-outline-warning btn-sm btn-block"
         href="{%url 'create_order' customer.id %}"
@@ -41,7 +45,21 @@
   <div class="col">
     <div class="card card-body">
       <form method="get">
-        {{myFilter.form}}
+        <div class="form-row">
+          <div class="form-group col-md">
+            <label for="inputProduct">Product Name</label>
+            <div class="">{{myFilter.form.product}}</div>
+          </div>
+          <div class="form-group col-md">
+            <label for="inputStatus">Status</label>
+            <div class="">{{myFilter.form.status}}</div>
+          </div>
+          <div class="form-group col-md">
+            <label for="inputNote">Description</label>
+            <div class="">{{myFilter.form.note}}</div>
+          </div>
+        </div>
+
         <button class="btn btn-primary" type="submit">Search</button>
       </form>
     </div>
