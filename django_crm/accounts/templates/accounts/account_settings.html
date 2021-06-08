@@ -10,7 +10,7 @@
 </style>
 
 <br />
-<div class="row">
+<div class="row container-fluid">
   <div class="col-md-3">
     <div class="card card-body">
       <a class="btn btn-warning" href="{% url 'home' %}">
@@ -35,6 +35,10 @@
           type="submit"
           name="Update Information"
         />
+        <hr />
+        {% for message in messages %}
+        <p class="alert alert-success" role="alert">{{message}}</p>
+        {% endfor %}
       </form>
     </div>
   </div>
