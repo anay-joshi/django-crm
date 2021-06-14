@@ -8,6 +8,8 @@ django = "*"
 django-filter = "*"
 pillow = "*"
 psycopg2 = "*"
+django-storages = "*"
+boto3 = "*"
 
 [dev-packages]
 

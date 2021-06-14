@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'accounts.apps.AccountsConfig',
     'django_filters',
+    'storages',
 
 ]
 
@@ -149,3 +150,38 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+
+
+#S3 BUCKETS CONFIG
+
+AWS_ACCESS_KEY_ID = 'AKIASSQD7HVKPR4B6ORP'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'anay-joshi-crm-bucket'
+
+AWS_S3_HOST = 's3.ap-south-1.amazonaws.com'
+AWS_S3_REGION_NAME= 'ap-south-1'
+
+AWS_S3_FILE_OVERWRITE = False 
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+# '''
+# [
+#     {
+#         "AllowedHeaders": [
+#             "*"
+#         ],
+#         "AllowedMethods": [
+#             "POST",
+#             "GET",
+#             "PUT"
+#         ],
+#         "AllowedOrigins": [
+#             "*"
+#         ]
+#     }
+# ]
+
+# '''
