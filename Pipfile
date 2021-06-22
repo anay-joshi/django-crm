@@ -10,6 +10,8 @@ pillow = "*"
 psycopg2 = "*"
 django-storages = "*"
 boto3 = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
