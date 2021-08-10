@@ -2,7 +2,7 @@
 
 # Project Demo:
 
-[Demo](curem-web.herokuapp.com/)
+[Demo](https://curem-web.herokuapp.com/)
 
 # Sample Login:
 
